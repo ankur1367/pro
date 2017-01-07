@@ -1,0 +1,69 @@
+{% load staticfiles %}
+{% load thumbnail %}
+<div class="wrapper">
+<div class="sidebar" data-background-color="grey" data-active-color="danger">
+
+    <!--
+		Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
+		Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
+	-->
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="http://www.creative-tim.com" class="simple-text">
+                  <div ><img padding-left="20px"title="profile picture" class="img-circle img-responsive" src="{% thumbnail show_user.profile.picture|default:'default_profile.png' 140x140 crop %}">
+                  </div>
+                    <h5>{{ show_user.get_full_name }}</h5>
+                </a>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Email:</strong></span>{{ show_user.email|default:"missing" }}
+        	  {% if show_user.profile.email_verified %}
+        	    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true" title="This email address has been verified"></span>
+        	    <span class="sr-only">Verified</span>
+        	  {% else %}
+        	    <span class="glyphicon glyphicon-warning-sign" aria-hidden="true" title="This email address is not verified"></span>
+        	    <span class="sr-only">Not Verified</span>
+        	  {% endif %}
+        	</li>
+            </div>
+
+            <ul class="nav">
+                <li class="active">
+                    <a href="dashboard.html">
+                        <i class="ti-pie-chart"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="user.html">
+                        <i class="ti-user"></i>
+                        <p>Wallets</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="table.html">
+                        <i class="ti-view-list-alt"></i>
+                        <p>Send Money</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="typography.html">
+                        <i class="ti-text"></i>
+                        <p>Recieve Money</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="icons.html">
+                        <i class="ti-pencil-alt2"></i>
+                        <p>Transactions</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="icons.html">
+                        <i class="ti-pencil-alt2"></i>
+                        <p>Settings</p>
+                    </a>
+                </li>
+
+            </ul>
+    	</div>
+    </div>
